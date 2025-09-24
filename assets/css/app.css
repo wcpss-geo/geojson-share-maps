@@ -75,12 +75,11 @@ input[type="radio"], input[type="checkbox"] {
   bottom: 0px;
   overflow: auto;
 }
-.leaflet-control-locate a {
-  padding: 3px 0 0 6px;
-}
+
 .leaflet-control-layers label {
   font-weight: normal;
   margin-bottom: 0px;
+  font-size: 1rem;
 }
 .leaflet-control-layers-list input[type="radio"], input[type="checkbox"] {
   margin: 2px;
