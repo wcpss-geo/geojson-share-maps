@@ -1,5 +1,3 @@
-L.mapbox.accessToken = "pk.eyJ1IjoiYnJ5bWNicmlkZSIsImEiOiJXN1NuOFFjIn0.3YNvR1YOvqEdeSsJDa-JUw";
-
 var titleField, cluster, userFields = [], urlParams = {};
 
 var mapboxOSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -16,13 +14,13 @@ var baseLayers = {
   "Aerial Imagery": mapboxSat
 };
 
-var markerClusters = new L.MarkerClusterGroup({
+var markerClusters = L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
   showCoverageOnHover: false,
   zoomToBoundsOnClick: true
 });
 
-var featureLayer = L.mapbox.featureLayer();
+var featureLayer = L.geoJSON();
 
 featureLayer.on("ready", function(e) {
   featureLayer.eachLayer(function (layer) {
@@ -120,7 +118,6 @@ var locateControl = L.control.locate({
     weight: 1,
     clickable: false
   },
-  icon: "fa fa-crosshairs",
   metric: false,
   strings: {
     title: "My location",
