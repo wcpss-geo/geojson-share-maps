@@ -138,7 +138,11 @@ function fetchData() {
   featureLayer.clearLayers();
   $("#feature-list tbody").empty();
   if (urlParams.src.indexOf(".topojson") > -1) {
-    omnivore.topojson(decodeURIComponent(urlParams.src), null, featureLayer).on("ready", function(layer) {
+    omnivore.topojson(
+      decodeURIComponent(urlParams.src),
+      null,
+      featureLayer)
+    .on("ready", function(layer) {
       $("#loading").hide();
     });
   }
@@ -149,12 +153,17 @@ function fetchData() {
         latfield: decodeURIComponent(urlParams.lat),
         lonfield: decodeURIComponent(urlParams.lng)
       },
-      featureLayer).on("ready", function(layer) {
+      featureLayer
+    ).on("ready", function(layer) {
       $("#loading").hide();
     });
   }
   else {
-    featureLayer.loadURL(decodeURIComponent(urlParams.src)).on("ready", function(layer) {
+    omnivore.geojson(
+      decodeURIComponent(urlParams.src),
+      null,
+      featureLayer
+    ).on("ready", function(layer) {
       $("#loading").hide();
     });
   }
